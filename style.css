@@ -39,12 +39,14 @@ header {
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
-    trajsition: .3s;
+    transition: .3s;
+    @media screen and (max-width: 600px);
 }
 
 .navbar a:hover,
 .navbar a.active {
   color: #ededed;
+  @media screen and (max-width: 600px);
 }
 
 .home {
