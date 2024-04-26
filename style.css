@@ -38,7 +38,7 @@ header {
     color: #ededed;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 35px;
+    margin-left: 30px;
     transition: .3s;
     @media screen and (max-width: 600px);
 }
