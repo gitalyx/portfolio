@@ -5,5 +5,5 @@ It is a portfolio where i will show projects and other things.
 
 The portfolio it is at
 ```sh
-gitalyx.github.io/portfolio
+www.gitalyx.github.io/portfolio
 ```
