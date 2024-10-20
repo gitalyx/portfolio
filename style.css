@@ -46,7 +46,7 @@ header {
 .navbar a:hover,
 .navbar a.active {
   color: #ededed;
-  @media screen and (max-width: 100px);
+  @media screen and (max-width: 50px);
 }
 
 .home {
