@@ -34,7 +34,7 @@ header {
 }
 
 .navbar a {
-    font-size: 15px;
+    font-size: 14px;
     color: #ededed;
     text-decoration: none;
     font-weight: 400;
@@ -46,7 +46,7 @@ header {
 .navbar a:hover,
 .navbar a.active {
   color: #ededed;
-  @media screen and (max-width: 50px);
+  @media screen and (max-width: 100px);
 }
 
 .home {
