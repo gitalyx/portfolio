@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 50px; 
+            text-align: center; 
+            background: #191a19; 
+            color: #ffffff;
+        }
+        form { 
+            max-width: 400px; 
+            margin: auto; 
+            background: #222; 
+            padding: 20px; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        label { 
+            display: block; 
+            text-align: left; 
+            margin: 10px 0; 
+            font-weight: bold; 
+        }
+        input, textarea { 
+            width: 100%; 
+            padding: 10px; 
+            margin-top: 5px; 
+            border: 1px solid #555; 
+            border-radius: 5px;
+            background: #333; 
+            color: #ffffff;
+        }
+        button { 
+            background: #0a5c38; 
+            color: white; 
+            padding: 10px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            width: 100%; 
+        }
+        button:hover { background: #218838; }
+        #response { 
+            margin-top: 10px; 
+            font-weight: bold; 
+            display: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        .success { 
+            color: #155724; 
+            background-color: #d4edda; 
+            border: 1px solid #c3e6cb; 
+        }
+        .error { 
+            color: #721c24; 
+            background-color: #f8d7da; 
+            border: 1px solid #f5c6cb; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Contact Alyx</h2>
+
+    <form id="contact-form" action="https://formspree.io/f/mjkyewro" method="POST">
+        <label>
+            Your Email:
+            <input type="email" name="email" required>
+        </label>
+        <label>
+            Your Message:
+            <textarea name="message" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="response"></p>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page reload
+            let formData = new FormData(this);
+            let responseMessage = document.getElementById("response");
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            }).then(response => {
+                if (!response.ok) throw new Error("Failed to send message.");
+                return response.json();
+            }).then(data => {
+                responseMessage.innerText = "Message sent successfully!";
+                responseMessage.className = "success";
+                responseMessage.style.display = "block";
+                this.reset(); // Reset form
+            }).catch(error => {
+                responseMessage.innerText = "Error sending message. Please try again.";
+                responseMessage.className = "error";
+                responseMessage.style.display = "block";
+            });
+        });
+    </script>
+
+</body>
+</html>
+
