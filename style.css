@@ -515,7 +515,7 @@ color: #ededed;
   .hamburger div {
     width: 30px;
     height: 4px;
-    background: white;
+    background: #ededed;
     transition: 0.3s;
   }
 }
